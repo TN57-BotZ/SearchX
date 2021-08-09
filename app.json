@@ -1,1 +1,40 @@
-
+{
+    "name": "SearchX-Bot",
+    "description": "A Telegram Bot To Search Files In GDrive",
+    "logo": "https://telegra.ph/file/6507910fd06d18dfaba82.jpg",
+    "keywords": [
+      "bot",
+      "telegram",
+      "python"
+    ],
+    "repository": "https://github.com/RhodesRhody/SearchX",
+    "website": "https://github.com/RhodesRhody/SearchX",
+    "success_url": "https://telegram.me/MeGCloud",
+    "stack": "container",
+    "env": {
+      "OWNER_ID": {
+        "description": "ID Of The Owner Of Bot",
+        "required": true
+        "value": "1512582583"
+      },
+      "BOT_TOKEN": {
+        "description": "The Telegram bot token that you get from @BotFather.",
+        "required": true
+      },
+      "TELEGRAPH_TOKEN": {
+        "description": "The telega.ph token ",
+        "required": true
+      }
+    },
+    "addons": [
+      {
+        "plan": "heroku-postgresql"
+      }
+    ],
+    "formation": {
+            "web": {
+                "quantity": 1,
+                "size": "free"
+            }
+      }
+} 
