@@ -1,3 +1,4 @@
+from quoters import Quote
 from telegram.ext import CommandHandler, run_async
 from bot.helper.drive_utils.gdriveTools import GoogleDriveHelper
 from bot import LOGGER, dispatcher
@@ -12,8 +13,9 @@ def list_drive(update,context):
     except IndexError:
         sendMessage('Send A Search Key Along With Command', context.bot, update)
         return
-        
-    reply = sendMessage('Searching...', context.bot, update)
+    
+    quo_te = Quote.print()
+    reply = sendMessage(f'<b>Searching For:</b> <code>{search}</code>\n\n<b>{quo_te}</b>', context.bot, update)
 
     LOGGER.info(f"Searching: {search}")
         
