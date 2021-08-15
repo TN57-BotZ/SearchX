@@ -126,7 +126,7 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             telegra_ph.edit_page(path = self.path[prev_page],
-                                 title = 'SearchX',
+                                 title = 'Hiroshi Cloud Search Results',
                                  html_content=content)
         return
 
@@ -158,21 +158,21 @@ class GoogleDriveHelper:
                 for file in response:
 
                     if add_title_msg == True:
-                        msg = f'<h3>I found these results for your search query: {fileName}</h3><br><b><a href="https://github.com/iamLiquidX/SearchX"> Bot Repo </a></b>'
+                        msg = f'<h3>Found Results :- {fileName}</h3><br><b><a href="https://t.me/Hiroshi_CloudZone"> Hiroshi Cloud Zone </a><a href="https://t.me/HiroshiBots"> || HiroshiBots</a></b>'
                         add_title_msg = False
                     if add_drive_title == True:
                         msg += f"<br><b>{DRIVE_NAME[INDEX]}</b><br><br>"
                         add_drive_title = False
                     if file.get('mimeType') == "application/vnd.google-apps.folder":  # Detect Whether Current Entity is a Folder or File.
                         msg += f"🗃️<code>{file.get('name')}</code> <b>(folder)</b><br>" \
-                               f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>Google Drive link</a></b>"
+                               f"<b><a href='https://drive.google.com/drive/folders/{file.get('id')}'>Drive link</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = "/".join([requests.utils.quote(n, safe='') for n in self.get_recursive_list(file, parent_id)])
                             url = f'{INDEX_URL[INDEX]}/{url_path}/'
                             msg += f'<b> | <a href="{url}">Index link</a></b>'
                     else:
                         msg += f"<code>{file.get('name')}</code> <b>({self.get_readable_file_size(file.get('size'))})</b><br>" \
-                               f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'>Google Drive link</a></b>"
+                               f"<b><a href='https://drive.google.com/uc?id={file.get('id')}&export=download'> Drive link</a></b>"
                         if INDEX_URL[INDEX] is not None:
                             url_path = "/".join([requests.utils.quote(n, safe ='') for n in self.get_recursive_list(file, parent_id)])
                             url = f'{INDEX_URL[INDEX]}/{url_path}'
@@ -196,7 +196,7 @@ class GoogleDriveHelper:
             return "I ..I found nothing of that sort :(", None
 
         for content in self.telegraph_content :
-            self.path.append(telegra_ph.create_page(title = 'SearchX',
+            self.path.append(telegra_ph.create_page(title = 'Hiroshi Cloud Zone Search Results',
                                                     html_content=content )['path'])
 
         self.num_of_path = len(self.path)
