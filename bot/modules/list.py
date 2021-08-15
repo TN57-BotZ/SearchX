@@ -15,7 +15,7 @@ def list_drive(update,context):
         return
     
     quo_te = Quote.print()
-    reply = sendMessage(f'<b>Searching For:</b> <code>{search}</code>\n\n<b>{quo_te}</b>', context.bot, update)
+    reply = sendMessage(f'<b>Searching For :- </b> <code>{search}</code>', context.bot, update)
 
     LOGGER.info(f"Searching: {search}")
         
